@@ -1,12 +1,12 @@
-
+<app-header></app-header>
 <div class="container">
-    <h2>Liste des utilisateurs</h2>
+    <h2>Liste des Schtroumpfs</h2>
     <table class="table">
       <thead>
         <tr>
-          <th>Nom d'utilisateur</th>
+          <th>Nom de Schtroumpf</th>
           <th>Rôle</th>
-          <th>Ajouter/Supprimer</th>
+          <th>Ajouter ami</th>
         </tr>
       </thead>
       <tbody>
@@ -14,8 +14,7 @@
           <td>{{ user.username }}</td>
           <td>{{ user.role }}</td>
           <td>
-            <button class="btn btn-danger btn-sm" (click)="(removeFriend(user))">Supprimer</button>
-            <button class="btn btn-primary btn-sm btn2" (click)="(addFriend(user))">Ajouter</button>
+            <button class="btn btn-primary btn-sm" (click)="(addFriend(user))">Ajouter</button>
           </td>
         </tr>
       </tbody>

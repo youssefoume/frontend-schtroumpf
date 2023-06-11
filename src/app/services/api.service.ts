@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  isLoggedIn() {
+   return !!localStorage.getItem('token');
+  }
  
   constructor(private http: HttpClient) { }
   url="http://localhost:3000/api/schtroumpf";

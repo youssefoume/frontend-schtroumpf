@@ -32,7 +32,7 @@ login(){
     this.router.navigate(['/home']);
 
   },
-  (err:any)=>{console.log(err);
+  (err:any)=>{alert("mot passe ou username est incorrect");
   });
 }
 }

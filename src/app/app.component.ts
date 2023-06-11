@@ -7,8 +7,4 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'schtroumpf-front';
-  constructor(private api:ApiService) { }
-  logout(){
-    localStorage.removeItem('token');  }
 }

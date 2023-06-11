@@ -26,11 +26,12 @@ localStorage.setItem('token',JSON.stringify({
   role:res.role,
   amis:res.amis
 }));
+this.getAllAmis();
 });
-this.api.getALlSchtroumpfs().subscribe((res: any) => {
-  this.amis = res.filter((schtroumpf: any) => user.amis.includes(schtroumpf._id));
-});
-this.ngOnInit();
+// this.api.getALlSchtroumpfs().subscribe((res: any) => {
+//   this.amis = res.filter((schtroumpf: any) => user.amis.includes(schtroumpf._id));
+// });
+// this.ngOnInit();
 });
 }
 getAllAmis() {

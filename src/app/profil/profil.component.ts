@@ -19,7 +19,7 @@ export class ProfilComponent {
     this.user=JSON.parse(localStorage.getItem('token')!);
     console.log(this.user);
     this.api.getALlSchtroumpfs().subscribe((res: any) => {
-      this.Schroumpfs = res.filter((schtroumpf:any)=>schtroumpf._id!=this.user.id);
+      this.Schroumpfs = res.filter((schtroumpf:any)=>!this.user.amis.includes(schtroumpf._id) && schtroumpf._id!=this.user.id);
     });
 
   }
@@ -38,8 +38,9 @@ export class ProfilComponent {
         role:res.role,
         amis:res.amis
       }));
+      this.getAllSchtroumpfs();
       });
-      this.ngOnInit();
+      
     });
   }
   

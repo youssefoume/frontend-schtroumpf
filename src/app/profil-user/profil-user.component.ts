@@ -28,16 +28,15 @@ changer(){
 }
 modifierSchtroumpf(){
   this.api.modifierSchtroumpf(this.user.id,this.role.value).subscribe((res:any)=>{
-    console.log(res);
+    this.user.role = this.role.value.role;
     localStorage.setItem('token',JSON.stringify({
       id:res._id,
       username:res.username,
       role:res.role,
       amis:res.amis
     }));
-    this.getUser();
-    this.router.navigate(['/profil']);
     this.clicked=false;
+   
   });
   
 

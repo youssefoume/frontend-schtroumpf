@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +10,7 @@ import { ApiService } from '../services/api.service';
 })
 export class SignUpComponent {
   user!:FormGroup;
-constructor(private api:ApiService,private formBuilder: FormBuilder) { }
+constructor(private router:Router,private api:ApiService,private formBuilder: FormBuilder) { }
 ngOnInit(): void {
 this.user = this.formBuilder.group({
 username: ['', Validators.required],
@@ -19,7 +20,7 @@ role: ['', Validators.required],
 });}
 register() {
 this.api.registerSchtroumpf(this.user.value).subscribe((res: any) => {
-console.log(res);
+this.router.navigate(['/sign-in']);
 },
 (err: any) => {console.log(err);
 });}
