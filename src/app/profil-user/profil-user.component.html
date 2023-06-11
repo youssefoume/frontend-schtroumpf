@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card">
+      <img src="../../assets/profil.png" alt="User Image" class="card-img-top">
+      <div class="card-body">
+        <h2 class="card-title">{{user.username}}</h2>
+        <h3 class="card-title" *ngIf="!clicked" class="card-text">rôle : {{user.role}}<button (click)="changer()" class="btn btn-primary c">?</button></h3>
+        <form *ngIf="clicked" [formGroup]="role" (ngSubmit)="modifierSchtroumpf()">
+            <div class="form-group">
+                <label for="role">rôle </label>
+                <select formControlName="role" class="form-control item" id="role">
+                  <option value="Guerrier">Guerrier</option>
+                  <option value="Alchimiste">Alchimiste</option>
+                  <option value="Sorcier">Sorcier</option>
+                  <option value="Espions">Espions</option>
+                  <option value="Enchanteur">Enchanteur</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">modifier</button>
+        </form>
+      </div>
+      
+    </div>
+
+  </div>
+  

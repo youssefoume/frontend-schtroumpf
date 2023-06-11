@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Liste des amis</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom d'utilisateur</th>
+          <th>Rôle</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ami of amis ">
+          <td>{{ ami.username }}</td>
+          <td>{{ ami.role }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="(removeFriend(ami))">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

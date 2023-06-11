@@ -1,0 +1,25 @@
+
+<div class="container">
+    <h2>Liste des utilisateurs</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom d'utilisateur</th>
+          <th>Rôle</th>
+          <th>Ajouter/Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Schroumpfs ">
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="(removeFriend(user))">Supprimer</button>
+            <button class="btn btn-primary btn-sm btn2" (click)="(addFriend(user))">Ajouter</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
