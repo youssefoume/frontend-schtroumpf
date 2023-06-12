@@ -5,11 +5,12 @@ img{
     margin-left: 20px;
 }
 button{
-    width: 200px;
     margin-left: 20px;
     margin-top: 30px;
 }
 .c{
-    width: 100px;
     margin-bottom: 30px;
+}
+.b{
+ width: 200px;
 }

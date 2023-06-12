@@ -11,6 +11,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { AmisComponent } from './amis/amis.component';
 import { ProfilUserComponent } from './profil-user/profil-user.component';
 import { HeaderComponent } from './header/header.component';
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

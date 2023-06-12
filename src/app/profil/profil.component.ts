@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
@@ -8,11 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
-  constructor(private api:ApiService,private router :Router) { }
+  constructor(private builder:FormBuilder,private api:ApiService,private router :Router) { }
   Schroumpfs:any;
   user:any
+  added:boolean=false;
+  newuser!:FormGroup; 
   ngOnInit(): void {
     this.getAllSchtroumpfs();
+    this.newuser=this.builder.group({
+      username:[''],
+      password:[''],
+      role:['']
+    });  
     
   }
   getAllSchtroumpfs() {
@@ -43,6 +51,26 @@ export class ProfilComponent {
       
     });
   }
+  addUser(){
+  this.added=true;
+  
+  }
+  register(){
+    this.api.registerSchtroumpf(this.newuser.value).subscribe((res:any)=>{
+      this.api.addAmis(this.user.id,{id:res._id}).subscribe((res:any)=>{
+         this.api.findSchtroumpfById(this.user.id).subscribe((res:any)=>{
+        console.log(res);
+      localStorage.setItem('token',JSON.stringify({
+        id:res._id,
+        username:res.username,
+        role:res.role,
+        amis:res.amis
+      }));
+      this.getAllSchtroumpfs();
+      });
+    });
+    this.added=false;
+  });}
   
 
 }

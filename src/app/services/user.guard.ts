@@ -13,7 +13,7 @@ export class UserGuard implements CanActivate {
     if(!this.api.isLoggedIn()){
       return true;
     }
-    this.root.navigate(['/home']);
+    // this.root.navigate(['/home']);
     return false;
   }
   

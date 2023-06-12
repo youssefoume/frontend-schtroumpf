@@ -20,6 +20,7 @@ role: ['', Validators.required],
 });}
 register() {
 this.api.registerSchtroumpf(this.user.value).subscribe((res: any) => {
+if(this.api.isLoggedIn()){this.router.navigate(['/home']);}
 this.router.navigate(['/sign-in']);
 },
 (err: any) => {console.log(err);
